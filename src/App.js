@@ -38,7 +38,15 @@ const App = () => {
 
   return (
     <Router>
-      <Route exact path="/" component={Log} />
+      <Route
+        exact
+        path="/"
+        render={() => (
+          <Log
+            buttons={buttons}
+          />
+        )}
+      />
       <Route path="/checklist" render={() => <Checklist />} />
       <Route
         path="/settings"
