@@ -6,10 +6,10 @@ import Nav from './Nav';
 
 const Settings = (props) => {
   const {
-    markers,
-    addMarker,
-    editMarker,
-    removeMarker,
+    buttons,
+    addButton,
+    editButton,
+    removeButton,
   } = props;
   return (
     <main>
@@ -22,27 +22,27 @@ const Settings = (props) => {
               <h1 className="h2">Settings</h1>
             </div>
             <form>
-              {markers.map(marker => (
-                <div className="input-group mb-3" key={marker.id}>
+              {buttons.map(button => (
+                <div className="input-group mb-3" key={button.id}>
                   <input
                     type="text"
                     className="form-control"
-                    aria-label={marker.title}
-                    value={marker.title}
-                    onChange={e => editMarker(marker.id, e.target.value)}
+                    aria-label={button.title}
+                    value={button.title}
+                    onChange={e => editButton(button.id, e.target.value)}
                   />
                   <div className="input-group-append">
                     <button
                       className="btn btn-outline-danger"
                       type="button"
-                      onClick={() => removeMarker(marker.id)}
+                      onClick={() => removeButton(button.id)}
                     >
                       Remove
                     </button>
                   </div>
                 </div>
               ))}
-              <button type="button" className="btn btn-primary" onClick={addMarker}>Add Marker</button>
+              <button type="button" className="btn btn-primary" onClick={addButton}>Add Marker</button>
             </form>
           </main>
         </div>

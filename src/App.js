@@ -8,32 +8,32 @@ import Checklist from './Checklist';
 import Settings from './Settings';
 
 const App = () => {
-  const [markers, setMarkers] = useState([
+  const [buttons, setButtons] = useState([
     { id: uniqueId(), title: 'Cam 1' },
     { id: uniqueId(), title: 'Cam 2' },
     { id: uniqueId(), title: 'Blooper' },
   ]);
 
-  // Adds the new Marker.
-  const addMarker = () => {
-    setMarkers([
-      ...markers,
+  // Adds the new Button.
+  const addButton = () => {
+    setButtons([
+      ...buttons,
       { id: uniqueId(), title: 'New Marker' },
     ]);
   };
 
-  // Edits the Marker.
-  const editMarker = (id, title) => {
-    const index = findIndex(markers, o => o.id === id);
-    markers[index].title = title;
-    setMarkers([...markers]);
+  // Edits the Button.
+  const editButton = (id, title) => {
+    const index = findIndex(buttons, o => o.id === id);
+    buttons[index].title = title;
+    setButtons([...buttons]);
   };
 
-  // Removes the Marker.
-  const removeMarker = (id) => {
-    const index = findIndex(markers, o => o.id === id);
-    markers.splice(index, 1);
-    setMarkers([...markers]);
+  // Removes the Button.
+  const removeButton = (id) => {
+    const index = findIndex(buttons, o => o.id === id);
+    buttons.splice(index, 1);
+    setButtons([...buttons]);
   };
 
   return (
@@ -44,11 +44,11 @@ const App = () => {
         path="/settings"
         render={() => (
           <Settings
-            markers={markers}
-            setMarkers={setMarkers}
-            addMarker={addMarker}
-            editMarker={editMarker}
-            removeMarker={removeMarker}
+            buttons={buttons}
+            setButtons={setButtons}
+            addButton={addButton}
+            editButton={editButton}
+            removeButton={removeButton}
           />
         )}
       />
