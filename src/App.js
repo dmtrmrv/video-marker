@@ -1,45 +1,17 @@
 import React from 'react';
+import Header from './Header';
+import Nav from './Nav';
 
 function App() {
   return (
     <main>
-      <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <a className="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Video Notes</a>
-        <ul className="navbar-nav px-3">
-          <li className="nav-item text-nowrap">
-            <a className="nav-link" href="#">v0.1.0</a>
-          </li>
-        </ul>
-      </nav>
-
+      <Header />
       <div className="container-fluid">
         <div className="row">
-          <nav className="col-md-2 d-none d-md-block bg-light sidebar">
-            <div className="sidebar-sticky">
-              <ul className="nav flex-column">
-                <li className="nav-item">
-                  <a className="nav-link active" href="#">
-                    Log <span className="sr-only">(current)</span>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Settings
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Checklist
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-
+          <Nav />
           <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
               <h1 className="h2">00:12:53</h1>
-
               <div className="btn-toolbar mb-2 mb-md-0">
                 <button className="btn btn-sm btn-outline-secondary">Export</button>
               </div>
