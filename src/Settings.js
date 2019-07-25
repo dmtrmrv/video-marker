@@ -14,21 +14,21 @@ const Settings = () => (
           </div>
           <form>
             <div className="input-group mb-3">
-              <input type="text" className="form-control" placeholder="Marker Title" aria-label="Marker Title" />
+              <input type="text" className="form-control" placeholder="Cam 1" aria-label="Cam 1" />
               <div className="input-group-append">
-                <button className="btn btn-outline-secondary" type="button">Remove</button>
+                <button className="btn btn-outline-danger" type="button">Remove</button>
               </div>
             </div>
             <div className="input-group mb-3">
-              <input type="text" className="form-control" placeholder="Marker Title" aria-label="Marker Title" />
+              <input type="text" className="form-control" placeholder="Cam 2" aria-label="Cam 2" />
               <div className="input-group-append">
-                <button className="btn btn-outline-secondary" type="button">Remove</button>
+                <button className="btn btn-outline-danger" type="button">Remove</button>
               </div>
             </div>
             <div className="input-group mb-3">
-              <input type="text" className="form-control" placeholder="Marker Title" aria-label="Marker Title" />
+              <input type="text" className="form-control" placeholder="Blooper" aria-label="Blooper" />
               <div className="input-group-append">
-                <button className="btn btn-outline-secondary" type="button">Remove</button>
+                <button className="btn btn-outline-danger" type="button">Remove</button>
               </div>
             </div>
             <button type="button" className="btn btn-primary">Add Marker</button>

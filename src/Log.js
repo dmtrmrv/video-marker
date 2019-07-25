@@ -15,8 +15,13 @@ const Log = () => (
               <button className="btn btn-sm btn-outline-secondary">Export</button>
             </div>
           </div>
+          <div className="btn-group mb-3" role="group" aria-label="Markers">
+            <button type="button" className="btn btn-outline-dark">Cam 1</button>
+            <button type="button" className="btn btn-outline-dark">Cam 2</button>
+            <button type="button" className="btn btn-outline-dark">Bloper</button>
+          </div>
           <div className="table-responsive">
-            <table className="table">
+            <table className="table ">
               <thead className="thead-dark">
                 <tr>
                   <th>Marker</th>
