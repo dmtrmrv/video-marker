@@ -1,23 +1,18 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Nav = () => (
   <nav className="col-md-2 d-none d-md-block bg-light sidebar">
     <div className="sidebar-sticky">
       <ul className="nav flex-column">
         <li className="nav-item">
-          <a className="nav-link active" href="#">
-            Log <span className="sr-only">(current)</span>
-          </a>
+          <NavLink exact to="/" activeClassName="active" className="nav-link">Log</NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">
-            Settings
-          </a>
+          <NavLink to="/settings" activeClassName="active" className="nav-link">Settings</NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">
-            Checklist
-          </a>
+          <NavLink to="/checklist" activeClassName="active" className="nav-link">Checklist</NavLink>
         </li>
       </ul>
     </div>
