@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "node": true,
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-filename-extension": 0,
+    "react/prop-types": 0,
+    "no-shadow": 0,
+    "max-len": 0
+  },
+  "globals": {
+    "wp": true
+  }
+}
