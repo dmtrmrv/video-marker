@@ -1,40 +1,16 @@
-import React, { useState } from 'react';
-import uniqueId from 'lodash.uniqueid';
-import findIndex from 'lodash.findindex';
+import React from 'react';
 
 import Header from './Header';
 import Nav from './Nav';
 
 
-const Settings = () => {
-  const [markers, setMarkers] = useState([
-    { id: uniqueId(), title: 'Cam 1' },
-    { id: uniqueId(), title: 'Cam 2' },
-    { id: uniqueId(), title: 'Blooper' },
-  ]);
-
-  // Adds the new Marker.
-  const addMarker = () => {
-    setMarkers([
-      ...markers,
-      { id: uniqueId(), title: 'New Marker' },
-    ]);
-  };
-
-  // Edits the Marker.
-  const editMarker = (id, title) => {
-    const index = findIndex(markers, o => o.id === id);
-    markers[index].title = title;
-    setMarkers([...markers]);
-  };
-
-  // Removes the Marker.
-  const removeMarker = (id) => {
-    const index = findIndex(markers, o => o.id === id);
-    markers.splice(index, 1);
-    setMarkers([...markers]);
-  };
-
+const Settings = (props) => {
+  const {
+    markers,
+    addMarker,
+    editMarker,
+    removeMarker,
+  } = props;
   return (
     <main>
       <Header />
