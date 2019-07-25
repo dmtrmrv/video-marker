@@ -24,7 +24,7 @@ const Log = (props) => {
                 <button type="button" className="btn btn-sm btn-outline-secondary">Export</button>
               </div>
             </div>
-            <div className="btn-group mb-3" role="group" aria-label="Markers">
+            <div className="btn-group mb-4" role="group" aria-label="Markers">
               {buttons.map(button => (
                 <button type="button" key={button.id} className="btn btn-outline-secondary">{button.title}</button>
               ))}
