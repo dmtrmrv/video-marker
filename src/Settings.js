@@ -13,6 +13,7 @@ const Settings = () => {
     { id: uniqueId(), title: 'Blooper' },
   ]);
 
+  // Adds the new Marker.
   const addMarker = () => {
     setMarkers([
       ...markers,
@@ -20,12 +21,14 @@ const Settings = () => {
     ]);
   };
 
+  // Edits the Marker.
   const editMarker = (id, title) => {
     const index = findIndex(markers, o => o.id === id);
     markers[index].title = title;
     setMarkers([...markers]);
   };
 
+  // Removes the Marker.
   const removeMarker = (id) => {
     const index = findIndex(markers, o => o.id === id);
     markers.splice(index, 1);
