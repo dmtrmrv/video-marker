@@ -5,12 +5,14 @@ import Log from './Log';
 import Checklist from './Checklist';
 import Settings from './Settings';
 
-const App = () => (
-  <Router>
-    <Route exact path="/" component={Log} />
-    <Route path="/checklist" component={Checklist} />
-    <Route path="/settings" component={Settings} />
-  </Router>
-);
+const App = () => {
+  return (
+    <Router>
+      <Route exact path="/" component={Log} />
+      <Route path="/checklist" component={Checklist} />
+      <Route path="/settings" component={Settings} />
+    </Router>
+  );
+};
 
 export default App;
