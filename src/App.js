@@ -16,18 +16,7 @@ const App = () => {
     { id: uniqueId(), title: 'Blooper' },
   ]);
 
-  useEffect(() => {
-    let interval = null;
-    if (status) {
-      interval = setInterval(() => {
-        setTimestamp(timestamp => timestamp + 1);
-      }, 1000);
-    } else if (!status && timestamp !== 0) {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [status, timestamp]);
-
+  // Toggle Timer.
   const toggleTimer = () => {
     setStatus(!status);
   };
@@ -53,6 +42,19 @@ const App = () => {
     buttons.splice(index, 1);
     setButtons([...buttons]);
   };
+
+  // Timer Magic.
+  useEffect(() => {
+    let interval = null;
+    if (status) {
+      interval = setInterval(() => {
+        setTimestamp(timestamp => timestamp + 1);
+      }, 1000);
+    } else if (!status && timestamp !== 0) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [status, timestamp]);
 
   return (
     <Router>
