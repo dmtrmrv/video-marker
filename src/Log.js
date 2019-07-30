@@ -11,6 +11,7 @@ const Log = (props) => {
     status,
     markers,
     addMarker,
+    removeMarker,
     toggleTimer,
     timestamp,
     buttons,
@@ -68,7 +69,15 @@ const Log = (props) => {
                       <td>{marker.start}</td>
                       <td>{marker.end}</td>
                       <td>{marker.notes}</td>
-                      <td><button type="button" className="btn btn-outline-danger btn-sm">Delete</button></td>
+                      <td>
+                        <button
+                          type="button"
+                          onClick={() => removeMarker(marker.id)}
+                          className="btn btn-outline-danger btn-sm"
+                        >
+                          Delete
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>

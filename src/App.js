@@ -51,11 +51,21 @@ const App = () => {
     ]);
   };
 
+  // Removes the Marker.
+  const removeMarker = (id) => {
+    const index = findIndex(markers, o => o.id === id);
+    markers.splice(index, 1);
+    setMarkers([...markers]);
+  };
+
   // Adds the new Button.
   const addButton = () => {
     setButtons([
       ...buttons,
-      { id: uniqueId(), title: 'New Marker' },
+      {
+        id: uniqueId(),
+        title: 'New Marker',
+      },
     ]);
   };
 
@@ -95,6 +105,7 @@ const App = () => {
           <Log
             markers={markers}
             addMarker={addMarker}
+            removeMarker={removeMarker}
             status={status}
             buttons={buttons}
             toggleTimer={toggleTimer}
