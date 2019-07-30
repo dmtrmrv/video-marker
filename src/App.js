@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import uniqueId from 'lodash.uniqueid';
 import findIndex from 'lodash.findindex';
@@ -8,11 +8,29 @@ import Checklist from './Checklist';
 import Settings from './Settings';
 
 const App = () => {
+  const [status, setStatus] = useState(false);
+  const [timestamp, setTimestamp] = useState(0);
   const [buttons, setButtons] = useState([
     { id: uniqueId(), title: 'Cam 1' },
     { id: uniqueId(), title: 'Cam 2' },
     { id: uniqueId(), title: 'Blooper' },
   ]);
+
+  useEffect(() => {
+    let interval = null;
+    if (status) {
+      interval = setInterval(() => {
+        setTimestamp(timestamp => timestamp + 1);
+      }, 1000);
+    } else if (!status && timestamp !== 0) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [status, timestamp]);
+
+  const toggleTimer = () => {
+    setStatus(!status);
+  };
 
   // Adds the new Button.
   const addButton = () => {
@@ -43,7 +61,10 @@ const App = () => {
         path="/"
         render={() => (
           <Log
+            status={status}
             buttons={buttons}
+            toggleTimer={toggleTimer}
+            timestamp={timestamp}
           />
         )}
       />

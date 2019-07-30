@@ -1,9 +1,13 @@
 import React from 'react';
+import { formatSeconds } from './Utils';
 import Header from './Header';
 import Nav from './Nav';
 
 const Log = (props) => {
   const {
+    status,
+    toggleTimer,
+    timestamp,
     buttons,
   } = props;
 
@@ -16,9 +20,14 @@ const Log = (props) => {
           <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-5 px-5">
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-4 border-bottom">
               <div className="d-flex flex-wrap flex-md-nowrap align-items-center">
-                <h1 className="h2 mb-0">00:00:00</h1>
-                <button type="button" className="btn btn-sm btn-outline-success ml-2">Start</button>
-                <button type="button" className="btn btn-sm btn-outline-danger ml-2">Stop</button>
+                <h1 className="h2 mb-0 timer">
+                  {formatSeconds(timestamp)}
+                </h1>
+                {status ? (
+                  <button type="button" className="btn btn-sm btn-outline-danger ml-2" onClick={() => toggleTimer()}>Stop</button>
+                ) : (
+                  <button type="button" className="btn btn-sm btn-outline-success ml-2" onClick={() => toggleTimer()}>Start</button>
+                )}
               </div>
               <div className="btn-toolbar mb-2 mb-md-0">
                 <button type="button" className="btn btn-sm btn-outline-secondary">Export</button>
