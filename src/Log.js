@@ -1,4 +1,7 @@
 import React from 'react';
+import uniqueId from 'lodash.uniqueid';
+import findIndex from 'lodash.findindex';
+
 import { formatSeconds } from './Utils';
 import Header from './Header';
 import Nav from './Nav';
@@ -6,6 +9,8 @@ import Nav from './Nav';
 const Log = (props) => {
   const {
     status,
+    markers,
+    addMarker,
     toggleTimer,
     timestamp,
     buttons,
@@ -35,7 +40,14 @@ const Log = (props) => {
             </div>
             <div className="btn-group mb-4" role="group" aria-label="Markers">
               {buttons.map(button => (
-                <button type="button" key={button.id} className="btn btn-outline-secondary">{button.title}</button>
+                <button
+                  type="button"
+                  key={button.id}
+                  onClick={() => addMarker(uniqueId(), button.title, formatSeconds(timestamp), '', '')}
+                  className="btn btn-outline-secondary"
+                >
+                  {button.title}
+                </button>
               ))}
             </div>
             <div className="table-responsive">
@@ -50,34 +62,15 @@ const Log = (props) => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Cam 1</td>
-                    <td>00:10:12</td>
-                    <td>00:12:53</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                    <td><button type="button" className="btn btn-outline-danger btn-sm">Delete</button></td>
-                  </tr>
-                  <tr>
-                    <td>Cam 1</td>
-                    <td>00:10:12</td>
-                    <td>00:12:53</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                    <td><button type="button" className="btn btn-outline-danger btn-sm">Delete</button></td>
-                  </tr>
-                  <tr>
-                    <td>Cam 1</td>
-                    <td>00:10:12</td>
-                    <td>00:12:53</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                    <td><button type="button" className="btn btn-outline-danger btn-sm">Delete</button></td>
-                  </tr>
-                  <tr>
-                    <td>Cam 1</td>
-                    <td>00:10:12</td>
-                    <td>00:12:53</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                    <td><button type="button" className="btn btn-outline-danger btn-sm">Delete</button></td>
-                  </tr>
+                  {markers.map(marker => (
+                    <tr key>
+                      <td>{marker.title}</td>
+                      <td>{marker.start}</td>
+                      <td>{marker.end}</td>
+                      <td>{marker.notes}</td>
+                      <td><button type="button" className="btn btn-outline-danger btn-sm">Delete</button></td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>

@@ -15,10 +15,40 @@ const App = () => {
     { id: uniqueId(), title: 'Cam 2' },
     { id: uniqueId(), title: 'Blooper' },
   ]);
+  const [markers, setMarkers] = useState([
+    {
+      id: uniqueId(),
+      title: 'Test',
+      start: '00:00:00',
+      end: '00:00:00',
+      notes: 'Lorem ipsum dolor sit amet.',
+    },
+    {
+      id: uniqueId(),
+      title: 'Test',
+      start: '00:00:00',
+      end: '00:00:00',
+      notes: 'Lorem ipsum dolor sit amet.',
+    },
+  ]);
 
   // Toggle Timer.
   const toggleTimer = () => {
     setStatus(!status);
+  };
+
+  // Adds the new Button.
+  const addMarker = (id, title, start, end, notes) => {
+    setMarkers([
+      ...markers,
+      {
+        id,
+        title,
+        start,
+        end,
+        notes,
+      },
+    ]);
   };
 
   // Adds the new Button.
@@ -63,6 +93,8 @@ const App = () => {
         path="/"
         render={() => (
           <Log
+            markers={markers}
+            addMarker={addMarker}
             status={status}
             buttons={buttons}
             toggleTimer={toggleTimer}
