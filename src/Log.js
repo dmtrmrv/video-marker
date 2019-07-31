@@ -1,6 +1,6 @@
 import React from 'react';
 import uniqueId from 'lodash.uniqueid';
-import findIndex from 'lodash.findindex';
+import { CSVLink, CSVDownload } from "react-csv";
 
 import { formatSeconds } from './Utils';
 import Header from './Header';
@@ -36,7 +36,14 @@ const Log = (props) => {
                 )}
               </div>
               <div className="btn-toolbar mb-2 mb-md-0">
-                <button type="button" className="btn btn-sm btn-outline-secondary">Export</button>
+                <CSVLink
+                  data={markers}
+                  className="btn btn-sm btn-outline-secondary"
+                  target="_blank"
+                  filename="video-markers.csv"
+                >
+                  Export to CSV
+                </CSVLink>
               </div>
             </div>
             <div className="btn-group mb-4" role="group" aria-label="Markers">
