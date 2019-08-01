@@ -14,8 +14,11 @@ const Button = (props) => {
     <button
       type="button"
       key={id}
-      onClick={() => addMarker(uniqueId(), title, formatSeconds(timestamp), '', '')}
-      className="btn btn-outline-secondary"
+      onClick={() => {
+        addMarker(uniqueId(), title, formatSeconds(timestamp), '', '');
+        setActive(!active);
+      }}
+      className={`btn btn-outline-${active ? 'danger' : 'dark'}`}
     >
       {title}
     </button>
