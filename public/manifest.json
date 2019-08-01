@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Video Marker",
+  "name": "Video marker is a web app for quickly taking notes while watching a video.",
   "icons": [
     {
       "src": "favicon.ico",
