@@ -15,6 +15,7 @@ const Log = (props) => {
     status,
     timestamp,
     toggleTimer,
+    sessionTitle,
   } = props;
 
   return (
@@ -36,7 +37,7 @@ const Log = (props) => {
             data={markers}
             className="btn btn-sm btn-outline-secondary"
             target="_blank"
-            filename="video-markers.csv"
+            filename={sessionTitle}
           >
             Export to CSV
           </CSVLink>
@@ -58,11 +59,11 @@ const Log = (props) => {
         <table className="table marker-log">
           <thead className="thead-dark">
             <tr>
-              <th class="marker-log__title">Marker</th>
-              <th class="marker-log__start">Start</th>
-              <th class="marker-log__end">End</th>
-              <th class="marker-log__notes">Notes</th>
-              <th class="marker-log__action">Action</th>
+              <th className="marker-log__title">Marker</th>
+              <th className="marker-log__start">Start</th>
+              <th className="marker-log__end">End</th>
+              <th className="marker-log__notes">Notes</th>
+              <th className="marker-log__action">Action</th>
             </tr>
           </thead>
           <tbody>

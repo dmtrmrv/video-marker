@@ -8,13 +8,13 @@ const Checklist = () => (
     <div>
       <div className="form-check">
         <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-        <label className="form-check-label" for="defaultCheck1">
+        <label className="form-check-label" htmlFor="defaultCheck1">
           Tell everyone to relax.
         </label>
       </div>
       <div className="form-check">
         <input className="form-check-input" type="checkbox" value="" id="defaultCheck2" />
-        <label className="form-check-label" for="defaultCheck2">
+        <label className="form-check-label" htmlFor="defaultCheck2">
           Turn on <strong>Do Not Disturb</strong> mode on all devices.
         </label>
       </div>
