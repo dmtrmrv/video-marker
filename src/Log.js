@@ -1,6 +1,6 @@
 import React from 'react';
 import uniqueId from 'lodash.uniqueid';
-import { CSVLink, CSVDownload } from "react-csv";
+import { CSVLink } from 'react-csv';
 
 import { formatSeconds } from './Utils';
 import Header from './Header';
