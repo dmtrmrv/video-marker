@@ -34,7 +34,12 @@ const Log = (props) => {
         </div>
         <div className="btn-toolbar mb-2 mb-md-0">
           <CSVLink
-            data={markers}
+            data={markers.map(marker => ({
+              Marker: marker.title,
+              Start: marker.start,
+              End: marker.end,
+              Notes: marker.notes,
+            }))}
             className="btn btn-sm btn-outline-secondary"
             target="_blank"
             filename={sessionTitle}
