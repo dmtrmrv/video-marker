@@ -10,6 +10,7 @@ const Log = (props) => {
   const {
     addMarker,
     addMarkerEnd,
+    editMarker,
     buttons,
     markers,
     removeMarker,
@@ -53,7 +54,7 @@ const Log = (props) => {
               {buttons.map(button => (
                 <Button
                   addMarker={addMarker}
-                  addMarkerEnd={addMarkerEnd}
+                  editMarker={editMarker}
                   id={button.id}
                   key={button.id}
                   timestamp={timestamp}
@@ -75,10 +76,42 @@ const Log = (props) => {
                 <tbody>
                   {markers.map(marker => (
                     <tr key={marker.id}>
-                      <td>{marker.title}</td>
-                      <td>{marker.start}</td>
-                      <td>{marker.end}</td>
-                      <td>{marker.notes}</td>
+                      <td>
+                        <input
+                          type="text"
+                          className="form-control"
+                          aria-label={marker.title}
+                          value={marker.title}
+                          onChange={e => editMarker(marker.id, 'title', e.target.value)}
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          className="form-control"
+                          aria-label={marker.start}
+                          value={marker.start}
+                          onChange={e => editMarker(marker.id, 'start', e.target.value)}
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          className="form-control"
+                          aria-label={marker.end}
+                          value={marker.end}
+                          onChange={e => editMarker(marker.id, 'end', e.target.value)}
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          className="form-control"
+                          aria-label={marker.notes}
+                          value={marker.notes}
+                          onChange={e => editMarker(marker.id, 'notes', e.target.value)}
+                        />
+                      </td>
                       <td>
                         <button
                           type="button"

@@ -6,7 +6,7 @@ const Button = (props) => {
   const [activeID, setActiveID] = useState();
   const {
     addMarker,
-    addMarkerEnd,
+    editMarker,
     timestamp,
     title,
   } = props;
@@ -15,7 +15,7 @@ const Button = (props) => {
       type="button"
       onClick={() => {
         if (activeID) {
-          addMarkerEnd(activeID, formatSeconds(timestamp));
+          editMarker(activeID, 'end', formatSeconds(timestamp));
           setActiveID(0);
         } else {
           const id = uniqueId();
