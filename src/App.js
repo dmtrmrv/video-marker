@@ -42,7 +42,14 @@ const App = () => {
     ]);
   };
 
-  // Edits the Button.
+  // Adds End Time to the Marker.
+  const addMarkerEnd = (id, end) => {
+    const index = findIndex(markers, o => o.id === id);
+    markers[index].end = end;
+    setMarkers([...markers]);
+  };
+
+  // Edits the Marker.
   const editMarker = (id, title, start, end, notes) => {
     const index = findIndex(markers, o => o.id === id);
     markers[index].id = id;
@@ -50,7 +57,7 @@ const App = () => {
     markers[index].start = start;
     markers[index].end = end;
     markers[index].notes = notes;
-    setButtons([...markers]);
+    setMarkers([...markers]);
   };
 
   // Removes the Marker.
@@ -105,14 +112,15 @@ const App = () => {
         path="/"
         render={() => (
           <Log
-            markers={markers}
             addMarker={addMarker}
-            removeMarker={removeMarker}
-            status={status}
+            addMarkerEnd={addMarkerEnd}
             buttons={buttons}
-            toggleTimer={toggleTimer}
+            markers={markers}
+            removeMarker={removeMarker}
             resetTimer={resetTimer}
+            status={status}
             timestamp={timestamp}
+            toggleTimer={toggleTimer}
           />
         )}
       />

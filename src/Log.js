@@ -8,14 +8,15 @@ import Button from './Button';
 
 const Log = (props) => {
   const {
-    status,
-    markers,
     addMarker,
-    removeMarker,
-    toggleTimer,
-    resetTimer,
-    timestamp,
+    addMarkerEnd,
     buttons,
+    markers,
+    removeMarker,
+    resetTimer,
+    status,
+    timestamp,
+    toggleTimer,
   } = props;
 
   return (
@@ -51,9 +52,10 @@ const Log = (props) => {
             <div className="btn-group mb-4" role="group" aria-label="Markers">
               {buttons.map(button => (
                 <Button
-                  key={button.id}
                   addMarker={addMarker}
+                  addMarkerEnd={addMarkerEnd}
                   id={button.id}
+                  key={button.id}
                   timestamp={timestamp}
                   title={button.title}
                 />

@@ -3,10 +3,10 @@ import uniqueId from 'lodash.uniqueid';
 import { formatSeconds } from './Utils';
 
 const Button = (props) => {
-  const [active, setActive] = useState(false);
+  const [activeID, setActiveID] = useState();
   const {
     addMarker,
-    id,
+    addMarkerEnd,
     timestamp,
     title,
   } = props;
@@ -14,10 +14,16 @@ const Button = (props) => {
     <button
       type="button"
       onClick={() => {
-        addMarker(uniqueId(), title, formatSeconds(timestamp), '', '');
-        setActive(!active);
+        if (activeID) {
+          addMarkerEnd(activeID, formatSeconds(timestamp));
+          setActiveID(0);
+        } else {
+          const id = uniqueId();
+          addMarker(id, title, formatSeconds(timestamp), '', '');
+          setActiveID(id);
+        }
       }}
-      className={`btn btn-outline-${active ? 'danger' : 'dark'}`}
+      className={`btn btn-outline-${activeID ? 'danger' : 'dark'}`}
     >
       {title}
     </button>
