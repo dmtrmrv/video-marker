@@ -9,7 +9,6 @@ import Button from './Button';
 const Log = (props) => {
   const {
     addMarker,
-    addMarkerEnd,
     editMarker,
     buttons,
     markers,
