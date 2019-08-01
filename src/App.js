@@ -3,11 +3,14 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import uniqueId from 'lodash.uniqueid';
 import findIndex from 'lodash.findindex';
 
+import Header from './Header';
+import Nav from './Nav';
 import Log from './Log';
 import Checklist from './Checklist';
 import Settings from './Settings';
 
 const App = () => {
+  const [sessionTitle, setSessionTitle] = useState('New Session');
   const [status, setStatus] = useState(false);
   const [timestamp, setTimestamp] = useState(0);
   const [buttons, setButtons] = useState([
@@ -96,36 +99,54 @@ const App = () => {
 
   return (
     <Router>
-      <Route
-        exact
-        path="/"
-        render={() => (
-          <Log
-            addMarker={addMarker}
-            buttons={buttons}
-            editMarker={editMarker}
-            markers={markers}
-            removeMarker={removeMarker}
-            resetTimer={resetTimer}
-            status={status}
-            timestamp={timestamp}
-            toggleTimer={toggleTimer}
-          />
-        )}
-      />
-      <Route path="/checklist" render={() => <Checklist />} />
-      <Route
-        path="/settings"
-        render={() => (
-          <Settings
-            addButton={addButton}
-            buttons={buttons}
-            editButton={editButton}
-            removeButton={removeButton}
-            setButtons={setButtons}
-          />
-        )}
-      />
+      <Header sessionTitle={sessionTitle} />
+      <div className="container-fluid">
+        <div className="row">
+          <Nav />
+          <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-5 px-5">
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <Log
+                  addMarker={addMarker}
+                  buttons={buttons}
+                  editMarker={editMarker}
+                  markers={markers}
+                  removeMarker={removeMarker}
+                  resetTimer={resetTimer}
+                  sessionTitle={sessionTitle}
+                  status={status}
+                  timestamp={timestamp}
+                  toggleTimer={toggleTimer}
+                />
+              )}
+            />
+            <Route
+              path="/checklist"
+              render={() => (
+                <Checklist
+                  sessionTitle={sessionTitle}
+                />
+              )}
+            />
+            <Route
+              path="/settings"
+              render={() => (
+                <Settings
+                  addButton={addButton}
+                  buttons={buttons}
+                  editButton={editButton}
+                  removeButton={removeButton}
+                  sessionTitle={sessionTitle}
+                  setButtons={setButtons}
+                  setSessionTitle={setSessionTitle}
+                />
+              )}
+            />
+          </main>
+        </div>
+      </div>
     </Router>
   );
 };
