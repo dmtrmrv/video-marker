@@ -1,10 +1,10 @@
 import React from 'react';
-import uniqueId from 'lodash.uniqueid';
 import { CSVLink } from 'react-csv';
 
 import { formatSeconds } from './Utils';
 import Header from './Header';
 import Nav from './Nav';
+import Button from './Button';
 
 const Log = (props) => {
   const {
@@ -50,14 +50,12 @@ const Log = (props) => {
             </div>
             <div className="btn-group mb-4" role="group" aria-label="Markers">
               {buttons.map(button => (
-                <button
-                  type="button"
-                  key={button.id}
-                  onClick={() => addMarker(uniqueId(), button.title, formatSeconds(timestamp), '', '')}
-                  className="btn btn-outline-secondary"
-                >
-                  {button.title}
-                </button>
+                <Button
+                  addMarker={addMarker}
+                  id={button.id}
+                  timestamp={timestamp}
+                  title={button.title}
+                />
               ))}
             </div>
             <div className="table-responsive">
