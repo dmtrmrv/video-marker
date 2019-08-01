@@ -15,22 +15,7 @@ const App = () => {
     { id: uniqueId(), title: 'Cam 2' },
     { id: uniqueId(), title: 'Blooper' },
   ]);
-  const [markers, setMarkers] = useState([
-    {
-      id: uniqueId(),
-      title: 'Test',
-      start: '00:00:00',
-      end: '00:00:00',
-      notes: 'Lorem ipsum dolor sit amet.',
-    },
-    {
-      id: uniqueId(),
-      title: 'Test',
-      start: '00:00:00',
-      end: '00:00:00',
-      notes: 'Lorem ipsum dolor sit amet.',
-    },
-  ]);
+  const [markers, setMarkers] = useState([]);
 
   // Toggle Timer.
   const toggleTimer = () => {
