@@ -13,6 +13,7 @@ const Log = (props) => {
     addMarker,
     removeMarker,
     toggleTimer,
+    resetTimer,
     timestamp,
     buttons,
   } = props;
@@ -34,6 +35,7 @@ const Log = (props) => {
                 ) : (
                   <button type="button" className="btn btn-sm btn-outline-success ml-2" onClick={() => toggleTimer()}>Start</button>
                 )}
+                <button type="button" className="btn btn-sm btn-outline-dark ml-2" onClick={() => resetTimer()}>Reset</button>
               </div>
               <div className="btn-toolbar mb-2 mb-md-0">
                 <CSVLink

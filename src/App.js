@@ -37,6 +37,12 @@ const App = () => {
     setStatus(!status);
   };
 
+  // Reset Timer.
+  const resetTimer = () => {
+    setTimestamp(0);
+    setStatus(false);
+  };
+
   // Adds the new Button.
   const addMarker = (id, title, start, end, notes) => {
     setMarkers([
@@ -120,6 +126,7 @@ const App = () => {
             status={status}
             buttons={buttons}
             toggleTimer={toggleTimer}
+            resetTimer={resetTimer}
             timestamp={timestamp}
           />
         )}
