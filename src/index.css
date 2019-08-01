@@ -85,6 +85,10 @@ body {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
 
+/**
+ * Table.
+ */
+
 .table th,
 .table td {
   vertical-align: middle;
@@ -93,6 +97,18 @@ body {
 .table thead th:last-child,
 .table tbody td:last-child {
   text-align: right;
+}
+
+.marker-log__title,
+.marker-log__start,
+.marker-log__end,
+.marker-log__action {
+  width: 12%;
+}
+
+.form-control--slim {
+  border: none;
+  padding: 0;
 }
 
 /*

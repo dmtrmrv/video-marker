@@ -55,14 +55,14 @@ const Log = (props) => {
         ))}
       </div>
       <div className="table-responsive">
-        <table className="table ">
+        <table className="table marker-log">
           <thead className="thead-dark">
             <tr>
-              <th>Marker</th>
-              <th>Start</th>
-              <th>End</th>
-              <th>Notes</th>
-              <th>Action</th>
+              <th class="marker-log__title">Marker</th>
+              <th class="marker-log__start">Start</th>
+              <th class="marker-log__end">End</th>
+              <th class="marker-log__notes">Notes</th>
+              <th class="marker-log__action">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -71,7 +71,7 @@ const Log = (props) => {
                 <td>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control form-control--slim"
                     aria-label={marker.title}
                     value={marker.title}
                     onChange={e => editMarker(marker.id, 'title', e.target.value)}
@@ -80,7 +80,7 @@ const Log = (props) => {
                 <td>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control form-control--slim"
                     aria-label={marker.start}
                     value={marker.start}
                     onChange={e => editMarker(marker.id, 'start', e.target.value)}
@@ -89,7 +89,7 @@ const Log = (props) => {
                 <td>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control form-control--slim"
                     aria-label={marker.end}
                     value={marker.end}
                     onChange={e => editMarker(marker.id, 'end', e.target.value)}
@@ -98,7 +98,7 @@ const Log = (props) => {
                 <td>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control form-control--slim"
                     aria-label={marker.notes}
                     value={marker.notes}
                     onChange={e => editMarker(marker.id, 'notes', e.target.value)}
