@@ -71,7 +71,7 @@ const Log = (props) => {
                 </thead>
                 <tbody>
                   {markers.map(marker => (
-                    <tr key>
+                    <tr key={marker.id}>
                       <td>{marker.title}</td>
                       <td>{marker.start}</td>
                       <td>{marker.end}</td>

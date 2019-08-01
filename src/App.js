@@ -51,6 +51,17 @@ const App = () => {
     ]);
   };
 
+  // Edits the Button.
+  const editMarker = (id, title, start, end, notes) => {
+    const index = findIndex(markers, o => o.id === id);
+    markers[index].id = id;
+    markers[index].title = title;
+    markers[index].start = start;
+    markers[index].end = end;
+    markers[index].notes = notes;
+    setButtons([...markers]);
+  };
+
   // Removes the Marker.
   const removeMarker = (id) => {
     const index = findIndex(markers, o => o.id === id);
