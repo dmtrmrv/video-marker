@@ -13,7 +13,6 @@ const Button = (props) => {
   return (
     <button
       type="button"
-      key={id}
       onClick={() => {
         addMarker(uniqueId(), title, formatSeconds(timestamp), '', '');
         setActive(!active);

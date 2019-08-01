@@ -51,6 +51,7 @@ const Log = (props) => {
             <div className="btn-group mb-4" role="group" aria-label="Markers">
               {buttons.map(button => (
                 <Button
+                  key={button.id}
                   addMarker={addMarker}
                   id={button.id}
                   timestamp={timestamp}
