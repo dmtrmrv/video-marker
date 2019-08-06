@@ -6,13 +6,13 @@ const Nav = () => (
     <div className="sidebar-sticky">
       <ul className="nav flex-column">
         <li className="nav-item">
+          <NavLink to="/checklist" activeClassName="active" className="nav-link">Checklist</NavLink>
+        </li>
+        <li className="nav-item">
           <NavLink exact to="/" activeClassName="active" className="nav-link">Log</NavLink>
         </li>
         <li className="nav-item">
           <NavLink to="/settings" activeClassName="active" className="nav-link">Settings</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink to="/checklist" activeClassName="active" className="nav-link">Checklist</NavLink>
         </li>
       </ul>
     </div>
