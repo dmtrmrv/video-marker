@@ -42,6 +42,13 @@ const App = () => {
     setStatus(false);
   };
 
+  // Edits the Button.
+  const editCheckbox = (id, checked) => {
+    const index = findIndex(checkboxes, o => o.id === id);
+    checkboxes[index].checked = checked;
+    setCheckboxes([...checkboxes]);
+  };
+
   // Adds the new Button.
   const addMarker = (id, title, start, end, notes) => {
     setMarkers([
@@ -139,6 +146,7 @@ const App = () => {
                 <Checklist
                   sessionTitle={sessionTitle}
                   checkboxes={checkboxes}
+                  editCheckbox={editCheckbox}
                 />
               )}
             />
