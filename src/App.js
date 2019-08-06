@@ -19,6 +19,17 @@ const App = () => {
     { id: uniqueId(), title: 'Blooper' },
   ]);
   const [markers, setMarkers] = useState([]);
+  const [checkboxes, setCheckboxes] = useState([
+    { id: uniqueId(), checked: false, title: 'Audio check of all speakers' },
+    { id: uniqueId(), checked: false, title: 'Background check for all speakers' },
+    { id: uniqueId(), checked: false, title: 'Camera is face-on for all speakers' },
+    { id: uniqueId(), checked: false, title: 'Speakers are all about the same distance from camera' },
+    { id: uniqueId(), checked: false, title: 'Check the HD box' },
+    { id: uniqueId(), checked: false, title: 'Ensure each audio is being recorded separately' },
+    { id: uniqueId(), checked: false, title: 'Record on two devices' },
+    { id: uniqueId(), checked: false, title: 'Share to group: write in chat at 5 mins, 1 min, 30 seconds remaining' },
+    { id: uniqueId(), checked: false, title: 'Video recorder must “disappear” from both cameras' },
+  ]);
 
   // Toggle Timer.
   const toggleTimer = () => {
@@ -127,6 +138,7 @@ const App = () => {
               render={() => (
                 <Checklist
                   sessionTitle={sessionTitle}
+                  checkboxes={checkboxes}
                 />
               )}
             />
