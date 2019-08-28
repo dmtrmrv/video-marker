@@ -14,13 +14,18 @@ const App = () => {
   const [status, setStatus] = useState(false);
   const [timestamp, setTimestamp] = useState(0);
   const [buttons, setButtons] = useState([
-    { id: uniqueId(), title: 'Cam 1' },
-    { id: uniqueId(), title: 'Cam 2' },
+    { id: uniqueId(), title: 'Start Session' },
+    { id: uniqueId(), title: 'Gallery View' },
+    { id: uniqueId(), title: 'Edit Out' },
     { id: uniqueId(), title: 'Blooper' },
+    { id: uniqueId(), title: 'Miscellaneous' },
   ]);
   const [markers, setMarkers] = useState([]);
   const [checkboxes, setCheckboxes] = useState([
-    { id: uniqueId(), checked: false, title: 'Audio check of all speakers' },
+    { id: uniqueId(), checked: false, title: 'Introduce yourself' },
+    { id: uniqueId(), checked: false, title: 'Have them all introduce themselves' },
+    { id: uniqueId(), checked: false, title: 'Get people feeling comfortable' },
+    { id: uniqueId(), checked: false, title: 'Audio check of all speakers ' },
     { id: uniqueId(), checked: false, title: 'Background check for all speakers' },
     { id: uniqueId(), checked: false, title: 'Camera is face-on for all speakers' },
     { id: uniqueId(), checked: false, title: 'Speakers are all about the same distance from camera' },
