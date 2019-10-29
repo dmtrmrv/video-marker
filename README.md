@@ -14,10 +14,6 @@ Video marker is a web app for quickly taking notes while watching a video.
 ### Changed
 - Updated the checklist
 
-## [0.1.1] - 2019-08-28
-### Changed
-- Updated the checklist
-
 ## [0.1.0] - 2019-08-06
 ### Added
 - Initial release
