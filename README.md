@@ -6,6 +6,7 @@ Video marker is a web app for quickly taking notes while watching a video.
 ## [0.1.2] - 2019-10-29
 ### Added
 - Changelog
+- Display version from package.json in the header
 
 ### Fixed
 - Don't rely on setInterval() for accurate time. Use new Date().getTime() instead.
