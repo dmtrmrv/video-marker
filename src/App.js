@@ -12,6 +12,7 @@ import Settings from './Settings';
 const App = () => {
   const [sessionTitle, setSessionTitle] = useState('New Session');
   const [status, setStatus] = useState(false);
+  const [start, setStart] = useState(0);
   const [timestamp, setTimestamp] = useState(0);
   const [buttons, setButtons] = useState([
     { id: uniqueId(), title: 'Start Session' },
@@ -38,7 +39,13 @@ const App = () => {
 
   // Toggle Timer.
   const toggleTimer = () => {
-    setStatus(!status);
+    if (!status) {
+      setStart(new Date().getTime() - timestamp);
+      setStatus(true);
+    } else {
+      setStart(new Date().getTime() - timestamp);
+      setStatus(false);
+    }
   };
 
   // Reset Timer.
@@ -112,13 +119,13 @@ const App = () => {
     let interval = null;
     if (status) {
       interval = setInterval(() => {
-        setTimestamp(timestamp => timestamp + 1);
-      }, 1000);
+        setTimestamp(new Date().getTime() - start);
+      }, 100);
     } else if (!status && timestamp !== 0) {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [status, timestamp]);
+  }, [start, status, timestamp]);
 
   return (
     <Router>

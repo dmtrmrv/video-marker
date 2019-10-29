@@ -23,7 +23,7 @@ const Log = (props) => {
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-4 border-bottom">
         <div className="d-flex flex-wrap flex-md-nowrap align-items-center">
           <h1 className="h2 mb-0 timer">
-            {formatSeconds(timestamp)}
+            {formatSeconds(Math.floor(timestamp / 100) / 10)}
           </h1>
           {status ? (
             <button type="button" className="btn btn-sm btn-outline-danger ml-2" onClick={() => toggleTimer()}>Stop</button>
