@@ -15,11 +15,11 @@ const Button = (props) => {
       type="button"
       onClick={() => {
         if (activeID) {
-          editMarker(activeID, 'end', formatSeconds(timestamp));
+          editMarker(activeID, 'end', formatSeconds(Math.floor(timestamp / 100) / 10));
           setActiveID(0);
         } else {
           const id = uniqueId();
-          addMarker(id, title, formatSeconds(timestamp), '', '');
+          addMarker(id, title, formatSeconds(Math.floor(timestamp / 100) / 10), '', '');
           setActiveID(id);
         }
       }}
